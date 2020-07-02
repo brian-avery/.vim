@@ -67,3 +67,18 @@
 [submodule "pack/plugins/start/vim-endwise"]
 	path = pack/plugins/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "pack/plugins/start/vim-sayonara"]
+	path = pack/plugins/start/vim-sayonara
+	url = https://github.com/mhinz/vim-sayonara.git
+[submodule "/home/briansvgs/.vim/pack/vendor/start/nerdtree"]
+	path = /home/briansvgs/.vim/pack/vendor/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/plugins/start/nerdtree"]
+	path = pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/plugins/start/nerdtree-git-plugin"]
+	path = pack/plugins/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "pack/plugins/start/vim-bookmarks"]
+	path = pack/plugins/start/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks.git
