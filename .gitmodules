@@ -1,0 +1,6 @@
+[submodule "pack/plugins/start/coc.nvim"]
+	path = pack/plugins/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "pack/colorschemes/papercolor.git"]
+	path = pack/colorschemes/papercolor.git
+	url = https://github.com/NLKNguyen/papercolor-theme.git
