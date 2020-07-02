@@ -19,10 +19,7 @@ install: ## Sets up symlink for user and root .vimrc for vim and neovim.
 	sudo ln -snf "$(HOME)/.vimrc" /root/.config/nvim/init.vim
 
 .PHONY: update
-update: update-pathogen update-plugins ## Updates pathogen and all plugins.
-
-.PHONY: update-plugins
-update-plugins: ## Updates all plugins.
+update: ## Updates all plugins.
 	git submodule update --init --recursive
 	git submodule update --remote
 	@cd $(CURDIR)/pack/plugins/start/coc.nvim && git checkout release && git reset --hard origin/release
