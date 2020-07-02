@@ -1,11 +1,17 @@
 XDG_CONFIG_HOME ?= $(HOME)/.config
 
+## In vim 8.0, submodules are stored in ~/.vim/pack/*/start
 .PHONY: install
 install: ## Sets up symlink for user and root .vimrc for vim and neovim.
-	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
+
 	mkdir -p "$(XDG_CONFIG_HOME)"
-	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
-	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
+	ln -snf "$(CURDIR)/vimrc" "$(HOME)/.vimrc" #vimrc from current path
+	ln -snf "$(CURDIR)" "$(HOME)/.vim" #vimfiles from current path
+	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim" #symbolic link from vim directory to make nvim see vim files
+	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim" #symbolic link to make nvim point at vimrc
+	mkdir -p "$(HOME)/.local/share/nvim/site/pack"
+	ln -snf "$(HOME)/.vim/pack" "$(HOME)/.local/share/nvim/site/pack"
+	#Now repeat it for root
 	sudo ln -snf "$(HOME)/.vim" /root/.vim
 	sudo ln -snf "$(HOME)/.vimrc" /root/.vimrc
 	sudo mkdir -p /root/.config
@@ -19,7 +25,7 @@ update: update-pathogen update-plugins ## Updates pathogen and all plugins.
 update-plugins: ## Updates all plugins.
 	git submodule update --init --recursive
 	git submodule update --remote
-	@cd $(CURDIR)/bundle/coc.nvim && git checkout release && git reset --hard origin/release
+	@cd $(CURDIR)/pack/plugins/start/coc.nvim && git checkout release && git reset --hard origin/release
 	git submodule foreach 'git pull --recurse-submodules origin `git rev-parse --abbrev-ref HEAD`'
 
 .PHONY: README.md
@@ -44,6 +50,9 @@ remove-submodule: ## Removes a git submodule (ex MODULE=bundle/nginx.vim).
 	git rm -f $(MODULE)
 	$(RM) -r $(MODULE).tmp
 
+.PHONY: add-submodule
+add-submodule: ##Adds a submodule (ex MODULE=bundle/nginx.vim)
+	git submodule add "https://github.com/$(MODULE).git" "pack/plugins/$(MODULE)"
 
 .PHONY: help
 help:
