@@ -28,9 +28,10 @@ $ git submodule update --init
 
 ### Using the Makefile
 * install                       [0m Sets up symlink for user and root .vimrc for vim and neovim.
+* add-submodule
 * remove-submodule              [0m Removes a git submodule (ex MODULE=bundle/nginx.vim).
 * update-plugins                [0m Updates all plugins.
-* update                        [0m Updates pathogen and all plugins.
+* update                        [0m Updates  all plugins.
 
 # Plugins Used
 * [github.com/NLKNguyen/papercolor-theme](https://github.com/NLKNguyen/papercolor-theme.git)

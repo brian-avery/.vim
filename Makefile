@@ -3,7 +3,6 @@ XDG_CONFIG_HOME ?= $(HOME)/.config
 ## In vim 8.0, submodules are stored in ~/.vim/pack/*/start
 .PHONY: install
 install: ## Sets up symlink for user and root .vimrc for vim and neovim.
-
 	mkdir -p "$(XDG_CONFIG_HOME)"
 	ln -snf "$(CURDIR)/vimrc" "$(HOME)/.vimrc" #vimrc from current path
 	ln -snf "$(CURDIR)" "$(HOME)/.vim" #vimfiles from current path
@@ -17,6 +16,11 @@ install: ## Sets up symlink for user and root .vimrc for vim and neovim.
 	sudo mkdir -p /root/.config
 	sudo ln -snf "$(HOME)/.vim" /root/.config/nvim
 	sudo ln -snf "$(HOME)/.vimrc" /root/.config/nvim/init.vim
+
+.PHONY: install_dependencies
+install_dependencies:
+	pip install neovim
+	go get golang.org/x/tools/gopls
 
 .PHONY: update
 update: ## Updates all plugins.

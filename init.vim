@@ -1,1 +1,0 @@
-/home/briansvgs/.vimrc

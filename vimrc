@@ -1,7 +1,7 @@
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
+"set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+colorscheme nord
 set guifont=Inconsolata:h15
 set guioptions-=L
 
