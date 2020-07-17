@@ -1,21 +1,21 @@
-XDG_CONFIG_HOME ?= $(HOME)/.config
+XDG_CONFIG_HOME ?= ${HOME}/.config
 
 ## In vim 8.0, submodules are stored in ~/.vim/pack/*/start
 .PHONY: install
 install: ## Sets up symlink for user and root .vimrc for vim and neovim.
-	mkdir -p "$(XDG_CONFIG_HOME)"
-	ln -snf "$(CURDIR)/vimrc" "$(HOME)/.vimrc" #vimrc from current path
-	ln -snf "$(CURDIR)" "$(HOME)/.vim" #vimfiles from current path
-	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim" #symbolic link from vim directory to make nvim see vim files
-	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim" #symbolic link to make nvim point at vimrc
-	mkdir -p "$(HOME)/.local/share/nvim/site/pack"
-	ln -snf "$(HOME)/.vim/pack" "$(HOME)/.local/share/nvim/site/pack"
+	mkdir -p "${XDG_CONFIG_HOME}"
+	ln -snf "$(CURDIR)/vimrc" "${HOME}/.vimrc" #vimrc from current path
+	ln -snf "$(CURDIR)" "${HOME}/.vim" #vimfiles from current path
+	ln -snf "${HOME}/.vim" "${XDG_CONFIG_HOME}/nvim" #symbolic link from vim directory to make nvim see vim files
+	ln -snf "${HOME}/.vimrc" "${XDG_CONFIG_HOME}/nvim/init.vim" #symbolic link to make nvim point at vimrc
+	mkdir -p "${HOME}/.local/share/nvim/site/pack"
+	ln -snf "${HOME}/.vim/pack" "$(HOME)/.local/share/nvim/site/pack"
 	#Now repeat it for root
-	sudo ln -snf "$(HOME)/.vim" /root/.vim
-	sudo ln -snf "$(HOME)/.vimrc" /root/.vimrc
+	sudo ln -snf "${HOME}/.vim" /root/.vim
+	sudo ln -snf "${HOME}/.vimrc" /root/.vimrc
 	sudo mkdir -p /root/.config
-	sudo ln -snf "$(HOME)/.vim" /root/.config/nvim
-	sudo ln -snf "$(HOME)/.vimrc" /root/.config/nvim/init.vim
+	sudo ln -snf "${HOME}/.vim" /root/.config/nvim
+	sudo ln -snf "${HOME}/.vimrc" /root/.config/nvim/init.vim
 
 .PHONY: install_dependencies
 install_dependencies:
