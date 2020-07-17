@@ -8,7 +8,7 @@ install: ## Sets up symlink for user and root .vimrc for vim and neovim.
 	ln -snf "$(CURDIR)" "${HOME}/.vim" #vimfiles from current path
 	ln -snf "${HOME}/.vim" "${XDG_CONFIG_HOME}/nvim" #symbolic link from vim directory to make nvim see vim files
 	ln -snf "${HOME}/.vimrc" "${XDG_CONFIG_HOME}/nvim/init.vim" #symbolic link to make nvim point at vimrc
-	mkdir -p "${HOME}/.local/share/nvim/site/pack"
+	mkdir -p "${HOME}/.local/share/nvim/site"
 	ln -snf "${HOME}/.vim/pack" "$(HOME)/.local/share/nvim/site/pack"
 	#Now repeat it for root
 	sudo ln -snf "${HOME}/.vim" /root/.vim
@@ -16,6 +16,7 @@ install: ## Sets up symlink for user and root .vimrc for vim and neovim.
 	sudo mkdir -p /root/.config
 	sudo ln -snf "${HOME}/.vim" /root/.config/nvim
 	sudo ln -snf "${HOME}/.vimrc" /root/.config/nvim/init.vim
+	sudo ln -snf "${HOME}/.local/share/nvim/site" /root/.local/share/nvim/site
 
 .PHONY: install_dependencies
 install_dependencies:

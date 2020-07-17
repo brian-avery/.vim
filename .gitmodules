@@ -87,6 +87,7 @@
 	url = https://github.com/rakr/vim-one.git
 [submodule "pack/colorschemes/start/nord-vim"]
 	path = pack/colorschemes/start/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim.git
 [submodule "pack/plugins/start/vim-better-whitespace"]
 	path = pack/plugins/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
