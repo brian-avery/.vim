@@ -5,6 +5,9 @@ colorscheme nord
 set guifont=Inconsolata:h15
 set guioptions-=L
 
+"use system clipboard
+set clipboard=unnamedplus
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -135,7 +138,7 @@ let g:mapleader = ","
 nnoremap <F6> :setlocal spell! spell?<CR>
 
 " Creating splits
-nnoremap <leader>v :vsplit<cr> 
+nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>h :split<cr>
 
 " Closing splits
@@ -191,8 +194,8 @@ set wildignore+=go/bin-vagrant                   " Go bin-vagrant files
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 
-" ------------------------------------------- 
-" File Type settings 			    		
+" -------------------------------------------
+" File Type settings
 " -------------------------------------------
 
 au BufNewFile,BufRead *.vim setlocal noet ts=4 sw=4 sts=4
